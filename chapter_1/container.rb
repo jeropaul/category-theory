@@ -5,9 +5,9 @@ module Container
     identity
   end
 
-  def self.compose(a, b)
+  def self.compose(function_a, function_b)
     ->(arg) do
-      a.call(b.call(arg))
+      function_a.(function_b.(arg))
     end
   end
 
